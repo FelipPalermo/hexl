@@ -16,8 +16,8 @@ It offers a range of functions for hexadecimal operations and is designed to be 
 To get started with the Hexadecimal ID Library, you can clone the repository and install any dependencies:
 
 ```bash
-git clone https://github.com/yourusername/hexadecimal-id-library.git
-cd hexadecimal-id-library
+git clone https://github.com/FelipPalermo/hex_functions
+cd hex_functions
 pip install -r requirements.txt
 ```
 
