@@ -161,6 +161,7 @@ class hex_functions :
         leftover_list.reverse()
         return leftover_list
 
+
     @staticmethod
     def dec_to_hex(values : List[int])  -> List[str] :  
 
@@ -183,7 +184,7 @@ class hex_functions :
 
         return ''.join(values)
 
-class ID : 
+class HEX : 
 
     """ 
     ID contains a Unique hexadecimal ID that can be iterated, compared and summed 
@@ -197,7 +198,7 @@ class ID :
         
     """
 
-    def __init__(self, HEX_ID : str = None ) : 
+    def __init__(self, HEX : str = None ) : 
 
         """
         Create a instance of ID, if no arguments it will create a random 8 digit ID
@@ -210,11 +211,11 @@ class ID :
             Nothing
         """
 
-        if HEX_ID is None : 
+        if HEX is None : 
             self.ID = hex_functions.generate_hex_ID() 
 
-        elif len(HEX_ID) == 8 and isinstance(HEX_ID, str) : 
-            self.ID = HEX_ID
+        elif len(HEX) == 8 and isinstance(HEX, str) : 
+            self.ID = HEX
         
         else : 
             raise AttributeError("Incorrect format, please use 8 digit hexadecimal notation")
@@ -251,10 +252,10 @@ class ID :
     def __iter__(self) : 
         return iter(self.ID)  
 
-    def __eq__(self, HEX_ID : str) -> bool: 
-        return self.ID == HEX_ID 
+    def __eq__(self, HEX : str) -> bool: 
+        return self.ID == HEX 
     
-    def __add__(self, value : Union[int, str]) -> "ID" : 
+    def __add__(self, value : Union[int, str]) -> "HEX" : 
 
         self.ID = hex_functions.hex_to_dec(str(self.ID))
         self.ID += value 
@@ -262,7 +263,7 @@ class ID :
 
         return self 
 
-    def __sub__(self, value : Union[int, str]) -> "ID" : 
+    def __sub__(self, value : Union[int, str]) -> "HEX" : 
 
         self.ID = int(hex_functions.hex_to_dec(str(self.ID)))
         self.ID -= value 
