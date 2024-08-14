@@ -39,13 +39,12 @@ print(f"Esoteric sum result: {z}")
 
 Here are the upcoming tasks and improvements planned for the Hexadecimal ID Library:
 
-Develop UML Diagrams: Create detailed UML diagrams for better understanding of the architecture.
-Enhance Docstrings: Improve existing docstrings for better documentation and usability.
-Implement Assignment and Search Functions: Add functionalities for assigning and searching IDs.
-Set Up NoSQL Database: Design and implement a NoSQL database system.
-Create 256-bit Hash Key: Develop a unitary key with a 256-bit hash for database access.
-Build Simplified Database Library: Create a library for optimized and simplified database connections and queries.
-Contributing
+-  Develop UML Diagrams: Create detailed UML diagrams for better understanding of the architecture.
+-  Enhance Docstrings: Improve existing docstrings for better documentation and usability.
+-  Implement Assignment and Search Functions: Add functionalities for assigning and searching IDs.
+-  Set Up NoSQL Database: Design and implement a NoSQL database system.
+-  Create 256-bit Hash Key: Develop a unitary key with a 256-bit hash for database access.
+-  Build Simplified Database Library: Create a library for optimized and simplified database connections and queries.
 
 Contributions are welcome! Feel free to fork the repository, submit pull requests, and report any issues.
 
