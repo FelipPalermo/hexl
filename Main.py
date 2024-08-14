@@ -1,5 +1,6 @@
 from typing import Type, overload, List, Union
 from random import randint 
+from math import floor
 
 class hex_functions : 
 
@@ -83,7 +84,7 @@ class hex_functions :
 
 
     @staticmethod    
-    def generate_hex_ID() : 
+    def generate_hex_ID() -> str : 
         """
         Generate random HEX number in a range with 8 positions 
 
@@ -140,6 +141,47 @@ class hex_functions :
             
         return sum(hex_id)
 
+    @staticmethod
+    def dec_hex_equation(values : Union[str, int]) -> List[int] : 
+
+        leftover_list = []
+
+        if isinstance(values, str) : 
+            values = int(values)
+
+        mod = values % 16 
+
+        while floor(mod) : 
+            
+            leftover_list.append(floor(mod))
+            values /= 16
+
+            mod = values % 16
+
+        leftover_list.reverse()
+        return leftover_list
+
+    @staticmethod
+    def dec_to_hex(values : List[int])  -> List[str] :  
+
+        hex_map = {
+            "15": "F",
+            "14": "E",
+            "13": "D",
+            "12": "C",
+            "11": "B",
+            "10": "A"
+        }
+
+        values = [
+            str(var) for var in values
+        ]
+
+        values = [
+            hex_map.get(var, var) for var in values
+        ]
+
+        return ''.join(values)
 
 class ID : 
 
@@ -153,8 +195,6 @@ class ID :
         __init__(self, HEX_ID : str) : 
             create a instance of the class with ID and hexadecimal maps 
         
-        exoteric_ID_sum(self, HEX_ID (str)) : 
-            Esoteric function that sum 2 hexadecimal ID's 
     """
 
     def __init__(self, HEX_ID : str = None ) : 
@@ -195,45 +235,14 @@ class ID :
         "11": "B",
         "10": "A"
     }
-    
-    def esoteric_ID_sum(self, HEX_ID) : 
+      
+    def __repr__(self) -> str:
+        return f"ID ( Value : {self.ID}\n type : {type(self.ID)}\n len : {len(self.ID)} )"
 
-        """ 
-        Esoteric function for summing two IDs. 
-        This function is considered esoteric because the sum does not yield real values; 
-        it is merely a representation of a function that is under construction.
-
-        Args : 
-            HEX_ID, hexadecimal ID that will be used to sum with the original class ID 
-
-        Returns : 
-            Sum of the two hexadecimal id's 
-        """
-
-        # HEX TO BASE 10
-        self.ID = [ self.inverse_hex_map.get(hmap, hmap) for hmap in self.ID ] 
-        # STR TO INT 
-        self.ID = [int(var) for var in self.ID] 
-
-        # Hex to base 10 
-        HEX_ID = [ self.inverse_hex_map.get(var, var) for var in HEX_ID ]
-        # STR to int  
-        HEX_ID = [ int(var) for var in HEX_ID ]
-
-        # zip 2 lists
-        self.ID = [a + b for a,b in zip(self.ID, HEX_ID)]
-        
-        # BACK TO STR 
-        self.ID = [ str(var) for var in self.ID ]
-        # BACK TO HEX 
-        self.ID = [ self.hex_map.get(var, var) for var in self.ID ]
-
-        return self.ID 
-
-    def __str__(self) : 
+    def __str__(self) -> str : 
         return ''.join(self.ID)
 
-    def __int__(self) : 
+    def __int__(self) -> int : 
         return hex_functions.hex_to_dec(self.ID)
 
     def __len__(self) -> int : 
@@ -242,10 +251,21 @@ class ID :
     def __iter__(self) : 
         return iter(self.ID)  
 
+    def __eq__(self, HEX_ID : str) -> bool: 
+        return self.ID == HEX_ID 
+    
+    def __add__(self, value : Union[int, str]) -> "ID" : 
 
-id_number = hex_functions.generate_hex_ID()
-ID1 = ID(id_number)
-print(int(ID1))
+        self.ID = hex_functions.hex_to_dec(str(self.ID))
+        self.ID += value 
+        self.ID = hex_functions.dec_to_hex(hex_functions.dec_hex_equation(self.ID)) 
 
-z = ID1.esoteric_ID_sum(hex_functions.generate_hex_ID())
-print(z)
+        return self 
+
+    def __sub__(self, value : Union[int, str]) -> "ID" : 
+
+        self.ID = int(hex_functions.hex_to_dec(str(self.ID)))
+        self.ID -= value 
+        self.ID = hex_functions.dec_to_hex(hex_functions.dec_hex_equation(self.ID))
+
+        return self 
