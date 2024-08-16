@@ -371,16 +371,3 @@ class ihex :
     def __hash__(self) -> int : 
         return hash(tuple(self.ID))
 
-
-
-a = hfunc.generate_hex()
-a = a + 150
-b = a - 50 
-c = b * 3
-d = c / 2 
-e = d ** 2
-f = e // 2 
-print(a, b, c, d, e, f) 
-print(a < 100, a > 100, a <= 100, a >= 100, a == 100)
-z = ihex() 
-print(a == z, a > z, a < z, a >= z, a <= z)
