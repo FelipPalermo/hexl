@@ -20,8 +20,6 @@ class hexl :
         to_hex : 
             use the values variable to convert and sum hexadecimal values 
             retunrs : hexl instance. 
-        
-
     """
 
     @staticmethod
@@ -62,7 +60,7 @@ class hexl :
             self.ID = hexl._convert_to_hex(hex) 
 
         else : 
-            self.ID = hex_functions.generate_hex() 
+            self.ID = hexl.generate_hex() 
 
     @staticmethod
     def to_hex(values : Union[str, int]) -> str : 
@@ -75,7 +73,6 @@ class hexl :
 
             returns : 
                 str : String representation of previous number.
-        
         """
     
         try :  

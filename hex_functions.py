@@ -108,7 +108,7 @@ class hex_functions :
 
         for i in values :  
             hex_id_len -= 1 
-            if i.isalpha() and i in ["A", "B", "C", "D", "E", "F"]: 
+            if i.isalpha() and i.upper() in ["A", "B", "C", "D", "E", "F"]: 
 
                 holder = hex_functions.alpha_to_hex(i)
                 hex_id.append(hex_functions.hex_sum(int(holder[0]), hex_id_len))
