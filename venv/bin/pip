@@ -1,4 +1,4 @@
-#!/Users/felipepalermo/Desktop/hex_functions/venv/bin/python3.12
+#!/Users/felipepalermo/Desktop/programacao/Projetos/hexl/hexl/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
