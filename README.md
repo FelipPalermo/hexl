@@ -1,6 +1,12 @@
 
 # Hexl Library
 
+## Installation
+
+   ```bash
+   pip install hexl
+   ```
+
 ## Overview
 
 `Hexl` is a Python library designed to create and manipulate unique hexadecimal IDs. These IDs can be iterated, compared, and used in arithmetic operations. This library includes various methods to generate hexadecimal IDs, convert between decimal and hexadecimal, and perform mathematical operations on these values.
@@ -58,18 +64,6 @@ decimal_value = int(hex_from_str)
 is_equal = hex_instance == "A12FFBD0"
 is_greater = hex_instance > hex_from_str
 ```
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/hexl-library.git
-   ```
-
-2. Install the required dependencies (if any):
-   ```bash
-   pip install -r requirements.txt
-   ```
 
 ## License
 
